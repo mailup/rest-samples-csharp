@@ -1,0 +1,16 @@
+C:\Users\Сергей\Documents\Visual Studio 2010\Projects\MailUpExampleVB\MailUpExampleVB\obj\Debug\MailUpExampleVB.Resources.resources
+C:\Users\Сергей\Documents\Visual Studio 2010\Projects\MailUpExampleVB\MailUpExampleVB\obj\Debug\MailUpExampleVB.vbproj.GenerateResource.Cache
+C:\Users\Сергей\Documents\Visual Studio 2010\Projects\MailUpExampleVB\MailUpExampleVB\bin\MailUpExampleVB.dll
+C:\Users\Сергей\Documents\Visual Studio 2010\Projects\MailUpExampleVB\MailUpExampleVB\bin\MailUpExampleVB.pdb
+C:\Users\Сергей\Documents\Visual Studio 2010\Projects\MailUpExampleVB\MailUpExampleVB\bin\MailUpExampleVB.xml
+C:\Users\Сергей\Documents\Visual Studio 2010\Projects\MailUpExampleVB\MailUpExampleVB\obj\Debug\MailUpExampleVB.dll
+C:\Users\Сергей\Documents\Visual Studio 2010\Projects\MailUpExampleVB\MailUpExampleVB\obj\Debug\MailUpExampleVB.xml
+C:\Users\Сергей\Documents\Visual Studio 2010\Projects\MailUpExampleVB\MailUpExampleVB\obj\Debug\MailUpExampleVB.pdb
+C:\MailUp\Sorgenti\SovDyn - API Client\NET\v2.1\MailUpExampleVB\bin\MailUpExampleVB.dll
+C:\MailUp\Sorgenti\SovDyn - API Client\NET\v2.1\MailUpExampleVB\bin\MailUpExampleVB.pdb
+C:\MailUp\Sorgenti\SovDyn - API Client\NET\v2.1\MailUpExampleVB\bin\MailUpExampleVB.xml
+C:\MailUp\Sorgenti\SovDyn - API Client\NET\v2.1\MailUpExampleVB\obj\Debug\MailUpExampleVB.Resources.resources
+C:\MailUp\Sorgenti\SovDyn - API Client\NET\v2.1\MailUpExampleVB\obj\Debug\MailUpExampleVB.vbproj.GenerateResource.Cache
+C:\MailUp\Sorgenti\SovDyn - API Client\NET\v2.1\MailUpExampleVB\obj\Debug\MailUpExampleVB.dll
+C:\MailUp\Sorgenti\SovDyn - API Client\NET\v2.1\MailUpExampleVB\obj\Debug\MailUpExampleVB.xml
+C:\MailUp\Sorgenti\SovDyn - API Client\NET\v2.1\MailUpExampleVB\obj\Debug\MailUpExampleVB.pdb

@@ -1,0 +1,268 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+MailUpExampleVB
+</name>
+</assembly>
+<members>
+<member name="P:MailUpExampleVB.My.MyWebExtension.Application">
+	<summary>
+ Возвращает информацию о текущем приложении.
+ </summary>
+</member><member name="P:MailUpExampleVB.My.MyWebExtension.Computer">
+	<summary>
+ Возвращает сведения о главном компьютере.
+ </summary>
+</member><member name="P:MailUpExampleVB.My.MyWebExtension.User">
+	<summary>
+ Возвращает сведения о текущем веб-пользователе.
+ </summary>
+</member><member name="P:MailUpExampleVB.My.MyWebExtension.Request">
+	<summary>
+ Возвращает объект Request.
+ </summary>
+</member><member name="P:MailUpExampleVB.My.MyWebExtension.Response">
+	<summary>
+ Возвращает объект Response.
+ </summary>
+</member><member name="P:MailUpExampleVB.My.MyWebExtension.Log">
+	<summary>
+ Возвращает объект журнала ASP.
+ </summary>
+</member><member name="P:MailUpExampleVB.My.MyWebExtension.WebServices">
+	<summary>
+ Предоставляет доступ к веб-службам, добавленным в этот проект.
+ </summary>
+</member><member name="T:MailUpExampleVB.My.MyWebExtension">
+	<summary>
+ Модуль, используемый для определения свойств, доступных в My Namespace для веб-проектов.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MailUpExampleVB.SiteMaster.Head1">
+	<summary>
+Head1 элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB.SiteMaster.HeadContent">
+	<summary>
+HeadContent элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB.SiteMaster.Form1">
+	<summary>
+Form1 элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB.SiteMaster.NavigationMenu">
+	<summary>
+NavigationMenu элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB.SiteMaster.MainContent">
+	<summary>
+MainContent элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB.ChangePassword.ChangeUserPassword">
+	<summary>
+Элемент управления ChangeUserPassword.
+</summary>
+	<remarks>
+Автоматически созданное поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB._Default.LogOn">
+	<summary>
+LogOn элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB._Default.pAuthorization">
+	<summary>
+pAuthorization элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB._Default.lstVerb">
+	<summary>
+lstVerb элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB._Default.lstContentType">
+	<summary>
+lstContentType элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB._Default.lstEndpoint">
+	<summary>
+lstEndpoint элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB._Default.txtPath">
+	<summary>
+txtPath элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB._Default.txtBody">
+	<summary>
+txtBody элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB._Default.CallMethod">
+	<summary>
+CallMethod элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB._Default.pResultString">
+	<summary>
+pResultString элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB._Default.pExampleResultString">
+	<summary>
+pExampleResultString элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB._Default.RunExample1">
+	<summary>
+RunExample1 элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB._Default.RunExample2">
+	<summary>
+RunExample2 элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB._Default.RunExample3">
+	<summary>
+RunExample3 элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB._Default.RunExample4">
+	<summary>
+RunExample4 элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB._Default.RunExample5">
+	<summary>
+RunExample5 элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB._Default.RunExample6">
+	<summary>
+RunExample6 элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB._Default.RunExample7">
+	<summary>
+RunExample7 элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB._Default.RunExample8">
+	<summary>
+RunExample8 элемент управления.
+</summary>
+	<remarks>
+Автоматически создаваемое поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB.Login.RegisterHyperLink">
+	<summary>
+Элемент управления RegisterHyperLink.
+</summary>
+	<remarks>
+Автоматически созданное поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB.Login.LoginUser">
+	<summary>
+Элемент управления LoginUser.
+</summary>
+	<remarks>
+Автоматически созданное поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB.Register.RegisterUser">
+	<summary>
+Элемент управления RegisterUser.
+</summary>
+	<remarks>
+Автоматически созданное поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member><member name="F:MailUpExampleVB.Register.RegisterUserWizardStep">
+	<summary>
+Элемент управления RegisterUserWizardStep.
+</summary>
+	<remarks>
+Автоматически созданное поле.
+Для изменения переместите объявление поля из файла конструктора в файл кода программной части.
+</remarks>
+</member>
+</members>
+</doc>
