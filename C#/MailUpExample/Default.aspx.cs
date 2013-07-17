@@ -107,7 +107,7 @@ namespace MailUpExample
                     foreach (Dictionary<String, Object> group in groups)
                     {
                         Object name = group["Name"];
-                        if ("migo test import".Equals(name)) groupId = int.Parse(group["idGroup"].ToString());
+                        if ("test import".Equals(name)) groupId = int.Parse(group["idGroup"].ToString());
                     }
 
                     status += String.Format("<p>Given a default list id (use idList = 1), request for user visible groups<br/>{0} {1} - OK</p>", "GET", resourceURL);
@@ -117,7 +117,7 @@ namespace MailUpExample
                     {
                         groupId = 100;
                         resourceURL = "" + mailUp.ConsoleEndpoint + "/Console/List/1/Group";
-                        String groupRequest = "{\"Deletable\":true,\"Name\":\"migo test import\",\"Notes\":\"test import\"}";
+                        String groupRequest = "{\"Deletable\":true,\"Name\":\"test import\",\"Notes\":\"test import\"}";
                         strResult = mailUp.CallMethod(resourceURL,
                                                              "POST",
                                                              groupRequest,
