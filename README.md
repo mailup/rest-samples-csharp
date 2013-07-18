@@ -38,6 +38,7 @@ Notes
 ------------------------
 We highly recommend to make use of the application API keys for test purposes and when running on staging environments only.
 If the code enclosed in the samples should ever run in production environments instead, we'd love you to get your personal free API keys.
+
 If you're interested to claim your API keys, please read more at the page [MailUp REST API Keys and endpoints] [3] 
 
   [3]: http://help.mailup.com/display/mailupapi/All+API+Keys+and+Endpoints+in+one+page        "MailUp REST API Keys and endpoints"
