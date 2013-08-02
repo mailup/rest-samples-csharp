@@ -40,7 +40,7 @@ namespace MailUp
             set { logonEndpoint = value; }
         }
 
-        private String authorizationEndpoint = "https://services.mailup.com/Authorization/Authorization";
+        private String authorizationEndpoint = "https://services.mailup.com/Authorization/OAuth/Authorization";
         public String AuthorizationEndpoint
         {
             get { return authorizationEndpoint; }
