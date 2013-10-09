@@ -12,6 +12,12 @@
         <asp:Button OnClick="LogOn_ServerClick" ID="LogOn" runat="server" Text="Sign in to MailUp"/>
     </p>
     
+    <p>
+    Username: <asp:TextBox ID="txtUsr" Columns="80" Value="type your MailUp username" runat="server" /><br />
+    Password: <asp:TextBox ID="txtPwd" Columns="80" Value="type your MailUp password" runat="server" /><br />
+        <asp:Button OnClick="LogOnWithUsernamePassword_ServerClick" ID="Button1" runat="server" Text="Sign in to MailUp with username and password."/>
+    </p>
+
     <p id="pAuthorization" runat="server"></p><br /><br />
 
     <p><b>Custom method call</b></p>

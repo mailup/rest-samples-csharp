@@ -123,7 +123,10 @@ namespace MailUp
             String url = GetLogOnUri();
             HttpContext.Current.Response.Redirect(url);
         }
-
+        public void LogOnWithUsernamePassword(String username,String password)
+        {
+            this.RetreiveAccessToken(username, password);
+        }
         public String RetreiveAccessToken(String code)
         {
             int statusCode = 0;
@@ -162,21 +165,37 @@ namespace MailUp
             try
             {
                 CookieContainer cookies = new CookieContainer();
-                HttpWebRequest wrLogon = (HttpWebRequest)WebRequest.Create(authorizationEndpoint + "?client_id=" + clientId + "&client_secret=" + clientSecret + "&response_type=code" +
-                    "&username=" + login + "&password=" + password);
+                
+                String body = "client_id=" + clientId + "&client_secret=" + clientSecret + "&grant_type=password&username=" + login + "&password=" + password;
+                HttpWebRequest wrLogon = (HttpWebRequest)WebRequest.Create(tokenEndpoint);
+                wrLogon.CookieContainer = cookies;
                 wrLogon.AllowAutoRedirect = false;
                 wrLogon.KeepAlive = true;
-                wrLogon.CookieContainer = cookies;
-                HttpWebResponse authorizationResponse = (HttpWebResponse)wrLogon.GetResponse();
-                statusCode = (int)authorizationResponse.StatusCode;
-                Stream objStream = authorizationResponse.GetResponseStream();
+                wrLogon.Method = "POST";
+                wrLogon.ContentType = "application/x-www-form-urlencoded";
+
+                String auth = String.Format("{0}:{1}",this.clientId,this.clientSecret);
+                wrLogon.Headers["Authorization"] = "Basic "+ Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes(auth));
+
+                byte[] byteArray = Encoding.UTF8.GetBytes(body);
+                wrLogon.ContentLength = byteArray.Length;
+                Stream dataStream = wrLogon.GetRequestStream();
+                dataStream.Write(byteArray, 0, byteArray.Length);
+                dataStream.Close();
+
+                HttpWebResponse tokenResponse = (HttpWebResponse)wrLogon.GetResponse();
+                statusCode = (int)tokenResponse.StatusCode;
+                Stream objStream = tokenResponse.GetResponseStream();
                 StreamReader objReader = new StreamReader(objStream);
                 String json = objReader.ReadToEnd();
-                authorizationResponse.Close();
+                tokenResponse.Close();
 
-                String code = ExtractJsonValue(json, "code");
+                accessToken = ExtractJsonValue(json, "access_token");
+                refreshToken = ExtractJsonValue(json, "refresh_token");
 
-                RetreiveAccessToken(code);
+                SaveToken();
+
+
             }
             catch (WebException wex)
             {

@@ -25,6 +25,8 @@ namespace MailUpExample
                 }
             }
 
+
+
             if (mailUp != null && mailUp.AccessToken != null)
             {
                 pAuthorization.InnerText = "Authorized. Token: " + mailUp.AccessToken;
@@ -52,6 +54,21 @@ namespace MailUpExample
         {
             MailUp.MailUpClient mailUp = (MailUp.MailUpClient)Session["MailUpClient"];
             if (mailUp != null) mailUp.LogOn();
+        }
+        // Sign in button - get tokens with password flow.
+        protected void LogOnWithUsernamePassword_ServerClick(object sender, EventArgs e)
+        {
+            MailUp.MailUpClient mailUp = (MailUp.MailUpClient)Session["MailUpClient"];
+            if (mailUp != null) mailUp.LogOnWithUsernamePassword(txtUsr.Text,txtPwd.Text);
+
+            if (mailUp != null && mailUp.AccessToken != null)
+            {
+                pAuthorization.InnerText = "Authorized. Token: " + mailUp.AccessToken;
+            }
+            else
+            {
+                pAuthorization.InnerText = "Unauthorized";
+            }
         }
 
         // Call method button - calls a single API method.
