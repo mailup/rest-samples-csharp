@@ -54,14 +54,14 @@ namespace MailUp
             set { tokenEndpoint = value; }
         }
 
-        private String consoleEndpoint = "https://services.mailup.com/API/v1/Rest/ConsoleService.svc";
+        private String consoleEndpoint = "https://services.mailup.com/API/v1.1/Rest/ConsoleService.svc";
         public String ConsoleEndpoint
         {
             get { return consoleEndpoint; }
             set { consoleEndpoint = value; }
         }
 
-        private String mailstatisticsEndpoint = "https://services.mailup.com/API/v1/Rest/MailStatisticsService.svc";
+        private String mailstatisticsEndpoint = "https://services.mailup.com/API/v1.1/Rest/MailStatisticsService.svc";
         public String MailstatisticsEndpoint
         {
             get { return mailstatisticsEndpoint; }
