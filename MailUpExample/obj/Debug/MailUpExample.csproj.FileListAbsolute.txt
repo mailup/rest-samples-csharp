@@ -22,3 +22,7 @@ C:\MailUp\Sorgenti\GitHub\rest-samples-csharp\MailUpExample\bin\MailUpExample.pd
 C:\MailUp\Sorgenti\GitHub\rest-samples-csharp\MailUpExample\obj\Debug\MailUpExample.csprojResolveAssemblyReference.cache
 C:\MailUp\Sorgenti\GitHub\rest-samples-csharp\MailUpExample\obj\Debug\MailUpExample.dll
 C:\MailUp\Sorgenti\GitHub\rest-samples-csharp\MailUpExample\obj\Debug\MailUpExample.pdb
+C:\Users\bossini\rest-samples-csharp\MailUpExample\bin\MailUpExample.dll
+C:\Users\bossini\rest-samples-csharp\MailUpExample\bin\MailUpExample.pdb
+C:\Users\bossini\rest-samples-csharp\MailUpExample\obj\Debug\MailUpExample.dll
+C:\Users\bossini\rest-samples-csharp\MailUpExample\obj\Debug\MailUpExample.pdb
