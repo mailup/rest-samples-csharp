@@ -21,7 +21,7 @@ namespace MailUpExample
             {
                 if (mailUp != null && mailUp.AccessToken == null)
                 {
-                    String token = mailUp.RetreiveAccessToken(Request.Params["code"]);                   
+                    String token = mailUp.RetreiveAccessToken(Request.Params["code"]);
                 }
             }
 
@@ -59,7 +59,7 @@ namespace MailUpExample
         protected void LogOnWithUsernamePassword_ServerClick(object sender, EventArgs e)
         {
             MailUp.MailUpClient mailUp = (MailUp.MailUpClient)Session["MailUpClient"];
-            if (mailUp != null) mailUp.LogOnWithUsernamePassword(txtUsr.Text,txtPwd.Text);
+            if (mailUp != null) mailUp.LogOnWithUsernamePassword(txtUsr.Text, txtPwd.Text);
 
             if (mailUp != null && mailUp.AccessToken != null)
             {
@@ -79,15 +79,15 @@ namespace MailUpExample
             {
                 if (mailUp != null)
                 {
-                    String resourceURL = ""+(lstEndpoint.SelectedValue == "Console"? mailUp.ConsoleEndpoint+txtPath.Text : mailUp.MailstatisticsEndpoint+txtPath.Text);
+                    String resourceURL = "" + (lstEndpoint.SelectedValue == "Console" ? mailUp.ConsoleEndpoint + txtPath.Text : mailUp.MailstatisticsEndpoint + txtPath.Text);
 
 
-                    String strResult = mailUp.CallMethod(resourceURL, 
-                                                         lstVerb.SelectedValue, 
+                    String strResult = mailUp.CallMethod(resourceURL,
+                                                         lstVerb.SelectedValue,
                                                          txtBody.Text,
                                                          lstContentType.SelectedValue == "JSON" ? MailUp.ContentType.Json : MailUp.ContentType.Xml);
 
-                    pResultString.InnerText = txtPath.Text + " returned: " +strResult;
+                    pResultString.InnerText = txtPath.Text + " returned: " + strResult;
                 }
             }
             catch (MailUp.MailUpException ex)
@@ -109,7 +109,7 @@ namespace MailUpExample
                     String resourceURL = "";
                     String strResult = "";
                     Object objResult;
-                    Dictionary<String, Object> items = new Dictionary<String, Object>();                  
+                    Dictionary<String, Object> items = new Dictionary<String, Object>();
 
                     // Given a default list id (use idList = 1), request for user visible groups
                     resourceURL = "" + mailUp.ConsoleEndpoint + "/Console/List/1/Groups";
@@ -220,7 +220,7 @@ namespace MailUpExample
                                                          MailUp.ContentType.Json);
                     objResult = new JavaScriptSerializer().DeserializeObject(strResult);
 
-                    status += String.Format("<p>Request for recipient in a group<br/>{0} {1} - OK</p>","GET",resourceURL);
+                    status += String.Format("<p>Request for recipient in a group<br/>{0} {1} - OK</p>", "GET", resourceURL);
 
                     items = (Dictionary<String, Object>)objResult;
                     Object[] recipients = (Object[])items["Items"];
@@ -274,7 +274,7 @@ namespace MailUpExample
                                                          MailUp.ContentType.Json);
                     objResult = new JavaScriptSerializer().DeserializeObject(strResult);
 
-                    status += String.Format("<p>Request for existing subscribed recipients<br/>{0} {1} - OK</p>","GET",resourceURL);
+                    status += String.Format("<p>Request for existing subscribed recipients<br/>{0} {1} - OK</p>", "GET", resourceURL);
 
                     items = (Dictionary<String, Object>)objResult;
                     Object[] recipients2 = (Object[])items["Items"];
@@ -310,7 +310,7 @@ namespace MailUpExample
                                                              recipientRequest,
                                                              MailUp.ContentType.Json);
 
-                        status += String.Format("<p>Update the modified recipient<br/>{0} {1} - OK</p>","PUT",resourceURL);
+                        status += String.Format("<p>Update the modified recipient<br/>{0} {1} - OK</p>", "PUT", resourceURL);
                     }
 
                     status += "<p>Example methods completed successfully</p>";
@@ -339,7 +339,7 @@ namespace MailUpExample
                     String strResult = "";
                     Object objResult;
                     Dictionary<String, Object> items = new Dictionary<String, Object>();
-                  
+
                     // Get the available template list
                     resourceURL = "" + mailUp.ConsoleEndpoint + "/Console/List/1/Templates";
                     strResult = mailUp.CallMethod(resourceURL,
@@ -347,11 +347,11 @@ namespace MailUpExample
                                                          null,
                                                          MailUp.ContentType.Json);
                     objResult = new JavaScriptSerializer().DeserializeObject(strResult);
-                    Object[] templates = (Object[])objResult;
-                    Dictionary<String, Object> template = (Dictionary<String, Object>)templates[0];
-                    int templateId = int.Parse(template["Id"].ToString());
-
-                    status += String.Format("<p>Get the available template list<br/>{0} {1} - OK</p>","GET",resourceURL);
+                    Dictionary<String, Object> template = (Dictionary<String, Object>)objResult;
+                    var arrItems = (Object[])template["Items"];
+                    var dictionaryItem = (Dictionary<String, Object>)arrItems[0];
+                    var templateId = dictionaryItem["Id"];
+                    status += String.Format("<p>Get the available template list<br/>{0} {1} - OK</p>", "GET", resourceURL);
 
                     // Create the new message
                     resourceURL = "" + mailUp.ConsoleEndpoint + "/Console/List/1/Email/Template/" + templateId;
@@ -361,11 +361,9 @@ namespace MailUpExample
                                                          MailUp.ContentType.Json);
                     objResult = new JavaScriptSerializer().DeserializeObject(strResult);
                     items = (Dictionary<String, Object>)objResult;
-                    Object[] emails = (Object[])items["Items"];
-                    Dictionary<String, Object> email = (Dictionary<String, Object>)emails[0];
-                    int emailId = int.Parse(email["idMessage"].ToString());
+                    int emailId = int.Parse(items["idMessage"].ToString());
 
-                    status += String.Format("<p>Create the new message<br/>{0} {1} - OK</p>","POST",resourceURL);
+                    status += String.Format("<p>Create the new message<br/>{0} {1} - OK</p>", "POST", resourceURL);
 
                     // Request for messages list
                     resourceURL = "" + mailUp.ConsoleEndpoint + "/Console/List/1/Emails";
@@ -375,7 +373,7 @@ namespace MailUpExample
                                                          MailUp.ContentType.Json);
                     objResult = new JavaScriptSerializer().DeserializeObject(strResult);
 
-                    status += String.Format("<p>Request for messages list<br/>{0} {1} - OK</p>","GET",resourceURL);
+                    status += String.Format("<p>Request for messages list<br/>{0} {1} - OK</p>", "GET", resourceURL);
 
                     status += "<p>Example methods completed successfully</p>";
                 }
@@ -407,7 +405,7 @@ namespace MailUpExample
                     // Upload an image
                     // Image bytes can be obtained from file, database or any other source
                     WebClient wc = new WebClient();
-                    byte[] imageBytes = wc.DownloadData("http://images.apple.com/home/images/ios_title_small.png");
+                    byte[] imageBytes = wc.DownloadData("https://www.google.it/images/srpr/logo11w.png");
                     String image = System.Convert.ToBase64String(imageBytes);
                     resourceURL = "" + mailUp.ConsoleEndpoint + "/Console/List/1/Images";
                     String imageRequest = "{\"Base64Data\":\"" + image + "\",\"Name\":\"Avatar\"}";
@@ -416,7 +414,7 @@ namespace MailUpExample
                                                          imageRequest,
                                                          MailUp.ContentType.Json);
 
-                    status += String.Format("<p>Upload an image<br/>{0} {1} - OK</p>","PUT",resourceURL);
+                    status += String.Format("<p>Upload an image<br/>{0} {1} - OK</p>", "PUT", resourceURL);
 
                     // Get the images available
                     resourceURL = "" + mailUp.ConsoleEndpoint + "/Console/Images";
@@ -429,7 +427,7 @@ namespace MailUpExample
                     Object[] srcs = (Object[])objResult;
                     if (srcs.Length > 0) imgSrc = srcs[0].ToString();
 
-                    status += String.Format("<p>Get the images available<br/>{0} {1} - OK</p>","GET",resourceURL);
+                    status += String.Format("<p>Get the images available<br/>{0} {1} - OK</p>", "GET", resourceURL);
 
                     // Create and save "hello" message
                     String message = "&lt;html&gt;&lt;body&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;img src=\\\"" + imgSrc + "\\\"/&gt;&lt;/body&gt;&lt;/html&gt;";
@@ -461,12 +459,11 @@ namespace MailUpExample
                                                          MailUp.ContentType.Json);
                     objResult = new JavaScriptSerializer().DeserializeObject(strResult);
                     items = (Dictionary<String, Object>)objResult;
-                    Object[] emails = (Object[])items["Items"];
-                    Dictionary<String, Object>email = (Dictionary<String, Object>)emails[0];
-                    int emailId = int.Parse(email["idMessage"].ToString());
+                    Dictionary<String, Object> template = (Dictionary<String, Object>)objResult;
+                    var emailId = template["idMessage"];
                     Session["emailId"] = emailId;
 
-                    status += String.Format("<p>Create and save \"hello\" message<br/>{0} {1} - OK</p>","POST",resourceURL);
+                    status += String.Format("<p>Create and save \"hello\" message<br/>{0} {1} - OK</p>", "POST", resourceURL);
 
                     // Add an attachment
                     resourceURL = "" + mailUp.ConsoleEndpoint + "/Console/List/1/Email/" + emailId + "/Attachment/1";
@@ -477,7 +474,7 @@ namespace MailUpExample
                                                          attachmentRequest,
                                                          MailUp.ContentType.Json);
 
-                    status += String.Format("<p>Add an attachment<br/>{0} {1} - OK</p>","POST",resourceURL);
+                    status += String.Format("<p>Add an attachment<br/>{0} {1} - OK</p>", "POST", resourceURL);
 
                     // Retreive message details
                     resourceURL = "" + mailUp.ConsoleEndpoint + "/Console/List/1/Email/" + emailId;
@@ -487,7 +484,7 @@ namespace MailUpExample
                                                          MailUp.ContentType.Json);
                     objResult = new JavaScriptSerializer().DeserializeObject(strResult);
 
-                    status += String.Format("<p>Retreive message details<br/>{0} {1} - OK</p>","GET",resourceURL);
+                    status += String.Format("<p>Retreive message details<br/>{0} {1} - OK</p>", "GET", resourceURL);
 
                     status += "<p>Example methods completed successfully</p>";
                 }
@@ -523,11 +520,11 @@ namespace MailUpExample
                                                          "\"test tag\"",
                                                          MailUp.ContentType.Json);
                     objResult = new JavaScriptSerializer().DeserializeObject(strResult);
-                    Object[] tags = (Object[])objResult;
-                    Dictionary<String, Object> tag = (Dictionary<String, Object>)tags[0];
+                    Object[] tags;
+                    Dictionary<String, Object> tag = (Dictionary<String, Object>)objResult;
                     int tagId = int.Parse(tag["Id"].ToString());
 
-                    status += String.Format("<p>Create a new tag<br/>{0} {1} - OK</p>","POST",resourceURL);
+                    status += String.Format("<p>Create a new tag<br/>{0} {1} - OK</p>", "POST", resourceURL);
 
                     // Pick up a message and retrieve detailed informations
                     int emailId = -1;
@@ -539,7 +536,7 @@ namespace MailUpExample
                                                          MailUp.ContentType.Json);
                     objResult = new JavaScriptSerializer().DeserializeObject(strResult);
 
-                    status += String.Format("<p>Pick up a message and retrieve detailed informations<br/>{0} {1} - OK</p>","GET",resourceURL);
+                    status += String.Format("<p>Pick up a message and retrieve detailed informations<br/>{0} {1} - OK</p>", "GET", resourceURL);
 
                     // Add the tag to the message details and save
                     Dictionary<String, Object> objEmail = (Dictionary<String, Object>)objResult;
@@ -560,7 +557,7 @@ namespace MailUpExample
                                                          MailUp.ContentType.Json);
                     objResult = new JavaScriptSerializer().DeserializeObject(strResult);
 
-                    status += String.Format("<p>Add the tag to the message details and save<br/>{0} {1} - OK</p>","PUT",resourceURL);
+                    status += String.Format("<p>Add the tag to the message details and save<br/>{0} {1} - OK</p>", "PUT", resourceURL);
 
                     status += "<p>Example methods completed successfully</p>";
                 }
@@ -598,11 +595,11 @@ namespace MailUpExample
                     objResult = new JavaScriptSerializer().DeserializeObject(strResult);
                     items = (Dictionary<String, Object>)objResult;
                     Object[] emails = (Object[])items["Items"];
-                    Dictionary<String, Object>  email = (Dictionary<String, Object>)emails[0];
+                    Dictionary<String, Object> email = (Dictionary<String, Object>)emails[0];
                     int emailId = int.Parse(email["idMessage"].ToString());
                     Session["emailId"] = emailId;
 
-                    status += String.Format("<p>Get the list of the existing messages<br/>{0} {1} - OK</p>","GET",resourceURL);
+                    status += String.Format("<p>Get the list of the existing messages<br/>{0} {1} - OK</p>", "GET", resourceURL);
 
                     // Send email to all recipients in the list
                     resourceURL = "" + mailUp.ConsoleEndpoint + "/Console/List/1/Email/" + emailId + "/Send";
@@ -611,7 +608,7 @@ namespace MailUpExample
                                                          null,
                                                          MailUp.ContentType.Json);
 
-                    status += String.Format("<p>Send email to all recipients in the list<br/>{0} {1} - OK</p>","POST",resourceURL);
+                    status += String.Format("<p>Send email to all recipients in the list<br/>{0} {1} - OK</p>", "POST", resourceURL);
 
                     status += "<p>Example methods completed successfully</p>";
                 }
@@ -642,13 +639,13 @@ namespace MailUpExample
                     int hours = 4;
                     int emailId = -1;
                     if (Session["emailId"] != null) emailId = (int)Session["emailId"];
-                    resourceURL = "" + mailUp.MailstatisticsEndpoint + "/Message/" + emailId + "/Views/List/Last/" + hours + "?pageSize=5&pageNum=0";
+                    resourceURL = "" + mailUp.MailstatisticsEndpoint + "/Message/" + emailId + "/List/Views?pageSize=5&pageNum=0";
                     strResult = mailUp.CallMethod(resourceURL,
                                                          "GET",
                                                          null,
                                                          MailUp.ContentType.Json);
 
-                    status += String.Format("<p>Request (to MailStatisticsService.svc) for paged message views list for the previously sent message<br/>{0} {1} - OK</p>","GET",resourceURL);
+                    status += String.Format("<p>Request (to MailStatisticsService.svc) for paged message views list for the previously sent message<br/>{0} {1} - OK</p>", "GET", resourceURL);
 
                     status += "<p>Example methods completed successfully</p>";
                 }
@@ -660,6 +657,6 @@ namespace MailUpExample
 
             pExampleResultString.InnerHtml = status;
         }
-        
+
     }
 }
