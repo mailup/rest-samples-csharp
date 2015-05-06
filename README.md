@@ -28,7 +28,7 @@ This project encloses a short list of pre definied samples describing some of th
 * Sample 5   - Building a message with images and attachements
 * Sample 6   - Tagging an email message
 * Sample 7   - Sending an email message
-* Sample 8   - Displaying statistics with regards to sample 7
+* Sample 8   - Displaying statistics with regards to message create in sample 5 and/or sent out in sample 7
 
 Debugging tool 
 ------------------------
