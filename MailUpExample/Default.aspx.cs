@@ -172,7 +172,7 @@ namespace MailUpExample
                                                          MailUp.ContentType.Json);
                     int importId = int.Parse(strResult);
 
-                    status += "<p>Import recipients to group - OK<p>";
+                    status += String.Format("<p>Import recipients to group.<br />{0} {1} - OK<p>", "GET", resourceURL);
 
                     // Check the import result
                     resourceURL = "" + mailUp.ConsoleEndpoint + "/Console/Import/" + importId;
@@ -181,7 +181,8 @@ namespace MailUpExample
                                                          null,
                                                          MailUp.ContentType.Json);
 
-                    status += "<p>Check the import result - OK<p>";
+                    status += String.Format("<p>Check the import result.<br />{0} {1} - OK<p>", "GET", resourceURL);
+                    
 
                     status += "<p>Example methods completed successfully<p>";
                 }
@@ -348,11 +349,19 @@ namespace MailUpExample
                                                          MailUp.ContentType.Json);
                     objResult = new JavaScriptSerializer().DeserializeObject(strResult);
                     Dictionary<String, Object> template = (Dictionary<String, Object>)objResult;
+                    Dictionary<String, Object> dictionaryItem;
+                    int templateId = 0;
                     var arrItems = (Object[])template["Items"];
-                    var dictionaryItem = (Dictionary<String, Object>)arrItems[0];
-                    var templateId = dictionaryItem["Id"];
-                    status += String.Format("<p>Get the available template list<br/>{0} {1} - OK</p>", "GET", resourceURL);
-
+                    if (arrItems.Length > 0)
+                    {
+                        dictionaryItem = (Dictionary<String, Object>)arrItems[0];
+                        templateId = (int)dictionaryItem["Id"];
+                        status += String.Format("<p>Get the available template list<br/>{0} {1} - OK</p>", "GET", resourceURL);
+                    }
+                    else
+                    {
+                        status += String.Format("<p>Could not find any template to create a new message from<br/>{0} {1} - FAIL</p>", "GET", resourceURL);
+                    }
                     // Create the new message
                     resourceURL = "" + mailUp.ConsoleEndpoint + "/Console/List/1/Email/Template/" + templateId;
                     strResult = mailUp.CallMethod(resourceURL,
