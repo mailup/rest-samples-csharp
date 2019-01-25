@@ -4,38 +4,66 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <title>MailUp Demo Client</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Styles/Styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="Scripts/mailupclient.js"></script>
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <script src="Scripts/config.js"></script>
+    <script src="Scripts/script.js"></script>
+    <script>
+        
+        function checkSignInButton() {
+            var userField = document.getElementById("MainContent_txtUsr");
+            var passField = document.getElementById("MainContent_txtPwd");
+            document.getElementById("MainContent_Button1").disabled = (userField && userField.value.length > 0) && (passField && passField.value.length > 0) ? false : true;
+        }
+
+        function checkRefreshButton() {
+            var expiresTimestamp = document.getElementById("MainContent_pExpirationTime");
+            var expiresTimer = document.getElementById("expires-in");
+            var refreshButton = document.getElementById("MainContent_RefreshButton");
+
+            if (expiresTimestamp.innerHTML > 0) {
+                    refreshButton.disabled = false;
+            } else {
+                refreshButton.disabled = true;
+            } 
+        }
+
+        function showImage(imgId, isShow) {
+            document.getElementById(imgId).hidden = isShow;
+        }
+
+        addEventListener('load', checkSignInButton);
+        addEventListener('load', checkRefreshButton); 
+        addEventListener('load', showTimer);
+    </script>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form runat="server">
-    <div class="page">
-        <div class="header">
-            <div class="title">
-                <h1>
-                    MailUp Demo
-                </h1>
+    <div class = "container">
+        <form runat="server">
+            <div class="header">
+                <div class="clear hideSkiplink">
+                    <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    </asp:Menu>
+                </div>
             </div>
-            <div class="clear hideSkiplink">
-                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
-                    <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
-                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
-                    </Items>
-                </asp:Menu>
+            <div class="page">
+                <div class="main">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+                </div>
+                <div class="clear">
+                </div>
             </div>
-        </div>
-        <div class="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
-        </div>
-        <div class="clear">
-        </div>
+            <div class="footer">
+            </div>
+        </form>
     </div>
-    <div class="footer">
-        
-    </div>
-    </form>
 </body>
 </html>

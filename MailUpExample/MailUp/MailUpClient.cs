@@ -89,6 +89,13 @@ namespace MailUp
             get { return callbackUri; }
         }
 
+        private String listId;
+        public String ListId
+        {
+            set { listId = value; }
+            get { return listId; }
+        }
+
         private String accessToken;
         public String AccessToken
         {
@@ -103,12 +110,19 @@ namespace MailUp
             get { return refreshToken; }
         }
 
+        private String expirationTime;
+        public String ExpirationTime
+        {
+            set { expirationTime = value; }
+            get { return expirationTime; }
+        }
         
-        public MailUpClient(String clientId, String clientSecret, String callbackUri)
+        public MailUpClient(String clientId, String clientSecret, String callbackUri, String listId)
         {
             this.clientId = clientId;
             this.clientSecret = clientSecret;
             this.callbackUri = callbackUri;
+            this.listId = listId;
             LoadToken();
         }
 
@@ -142,8 +156,7 @@ namespace MailUp
                 String json = objReader.ReadToEnd();
                 retreiveResponse.Close();
 
-                accessToken = ExtractJsonValue(json, "access_token");
-                refreshToken = ExtractJsonValue(json, "refresh_token");
+                ExtractTokensFromJson(json);
 
                 SaveToken();
             }
@@ -190,12 +203,9 @@ namespace MailUp
                 String json = objReader.ReadToEnd();
                 tokenResponse.Close();
 
-                accessToken = ExtractJsonValue(json, "access_token");
-                refreshToken = ExtractJsonValue(json, "refresh_token");
+                ExtractTokensFromJson(json);
 
                 SaveToken();
-
-
             }
             catch (WebException wex)
             {
@@ -235,8 +245,7 @@ namespace MailUp
                 String json = objReader.ReadToEnd();
                 refreshResponse.Close();
 
-                accessToken = ExtractJsonValue(json, "access_token");
-                refreshToken = ExtractJsonValue(json, "refresh_token");
+                ExtractTokensFromJson(json);
 
                 SaveToken();
             }
@@ -316,11 +325,32 @@ namespace MailUp
 
         private String ExtractJsonValue(String json, String name)
         {
-            String delim = "\"" + name + "\":\"";
+            String delim = "\"" + name + "\":";
             int start = json.IndexOf(delim) + delim.Length;
-            int end = json.IndexOf("\"", start + 1);
-            if (end > start && start > -1 && end > -1) return json.Substring(start, end - start);
-            else return "";
+            int end1 = json.IndexOf("\"", start + 1);
+            if (end1 < 0) end1 = 100000;
+            int end2 = json.IndexOf(",", start + 1);
+            if (end2 < 0) end2 = 100000;
+            int end3 = json.IndexOf("}", start + 1);
+
+            int end = Math.Min(Math.Min(end1, end2), end3);
+
+            if (end > start && start > -1 && end > -1)
+            {
+                String result = json.Substring(start, end - start);
+                if (result.StartsWith("\""))
+                {
+                    return json.Substring(start + 1, end - start - 1);
+                }
+                else
+                {
+                    return result;
+                }
+            }
+            else
+            {
+                return "";
+            }
         }
 
         private String GetContentTypeString(ContentType cType)
@@ -342,6 +372,10 @@ namespace MailUp
                 {
                     refreshToken = cookie.Values["refresh_token"].ToString();
                 }
+                if (!String.IsNullOrEmpty(cookie.Values["expires_in"]))
+                {
+                    expirationTime = cookie.Values["expires_in"].ToString();
+                }
             }
         }
 
@@ -351,9 +385,24 @@ namespace MailUp
             
             cookie.Values.Add("access_token", accessToken);
             cookie.Values.Add("refresh_token", refreshToken);
+            cookie.Values.Add("expires_in", expirationTime);
             cookie.Expires = DateTime.Now.AddDays(30);
 
             HttpContext.Current.Response.Cookies.Add(cookie);
+        }
+
+        public Int64 ToUnixTime(DateTime date)
+        {
+            var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Local);
+            return Convert.ToInt64((date.ToUniversalTime() - epoch).TotalSeconds);
+        }
+
+        public void ExtractTokensFromJson(String json)
+        {
+            accessToken = ExtractJsonValue(json, "access_token");
+            refreshToken = ExtractJsonValue(json, "refresh_token");
+            int exp = Convert.ToInt32(ExtractJsonValue(json, "expires_in"));
+            expirationTime = ToUnixTime(DateTime.Now.AddSeconds(exp)).ToString();
         }
     }
 }
