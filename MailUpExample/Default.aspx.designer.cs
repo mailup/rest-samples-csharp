@@ -49,13 +49,40 @@ namespace MailUpExample {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// pAuthorization control.
+        /// pAuthorizationStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pAuthorization;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pAuthorizationStatus;
+        
+        /// <summary>
+        /// pAuthorizationToken control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pAuthorizationToken;
+        
+        /// <summary>
+        /// pExpirationTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pExpirationTime;
+        
+        /// <summary>
+        /// RefreshButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button RefreshButton;
         
         /// <summary>
         /// lstVerb control.
@@ -121,15 +148,6 @@ namespace MailUpExample {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl pResultString;
         
         /// <summary>
-        /// pExampleResultString control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pExampleResultString;
-        
-        /// <summary>
         /// RunExample1 control.
         /// </summary>
         /// <remarks>
@@ -139,66 +157,138 @@ namespace MailUpExample {
         protected global::System.Web.UI.WebControls.Button RunExample1;
         
         /// <summary>
-        /// RunExample2 control.
+        /// pExampleResultBlock1String control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RunExample2;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pExampleResultBlock1String;
         
         /// <summary>
-        /// RunExample3 control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RunExample3;
+        protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
-        /// RunExample4 control.
+        /// pExampleResultBlock2String control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RunExample4;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pExampleResultBlock2String;
         
         /// <summary>
-        /// RunExample5 control.
+        /// Button3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RunExample5;
+        protected global::System.Web.UI.WebControls.Button Button3;
         
         /// <summary>
-        /// RunExample6 control.
+        /// pExampleResultBlock3String control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RunExample6;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pExampleResultBlock3String;
         
         /// <summary>
-        /// RunExample7 control.
+        /// Button4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RunExample7;
+        protected global::System.Web.UI.WebControls.Button Button4;
         
         /// <summary>
-        /// RunExample8 control.
+        /// pExampleResultBlock4String control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RunExample8;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pExampleResultBlock4String;
+        
+        /// <summary>
+        /// Button5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button5;
+        
+        /// <summary>
+        /// pExampleResultBlock5String control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pExampleResultBlock5String;
+        
+        /// <summary>
+        /// Button6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button6;
+        
+        /// <summary>
+        /// pExampleResultBlock6String control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pExampleResultBlock6String;
+        
+        /// <summary>
+        /// Button7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button7;
+        
+        /// <summary>
+        /// pExampleResultBlock7String control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pExampleResultBlock7String;
+        
+        /// <summary>
+        /// Button8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button8;
+        
+        /// <summary>
+        /// pExampleResultBlock8String control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pExampleResultBlock8String;
     }
 }

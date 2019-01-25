@@ -33,7 +33,8 @@ namespace MailUpExample
         {
             MailUp.MailUpClient APIClient = new MailUp.MailUpClient(ConfigurationManager.AppSettings["MailUpClientId"],
                                                                     ConfigurationManager.AppSettings["MailUpClientSecret"], 
-                                                                    ConfigurationManager.AppSettings["MailUpCallbackUri"]);
+                                                                    ConfigurationManager.AppSettings["MailUpCallbackUri"],
+                                                                    ConfigurationManager.AppSettings["MailUpListId"]);
 
             if (ConfigurationManager.AppSettings["MailUpConsoleEndpoint"] != null)
                 APIClient.ConsoleEndpoint = ConfigurationManager.AppSettings["MailUpConsoleEndpoint"];
