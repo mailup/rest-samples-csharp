@@ -179,7 +179,8 @@ namespace MailUp
             {
                 CookieContainer cookies = new CookieContainer();
                 
-                String body = "client_id=" + clientId + "&client_secret=" + clientSecret + "&grant_type=password&username=" + login + "&password=" + password;
+                String body = "client_id=" + clientId + "&client_secret=" + clientSecret + "&grant_type=password&username="
+                                + Uri.EscapeDataString(login) + "&password=" + Uri.EscapeDataString(password);
                 HttpWebRequest wrLogon = (HttpWebRequest)WebRequest.Create(tokenEndpoint);
                 wrLogon.CookieContainer = cookies;
                 wrLogon.AllowAutoRedirect = false;
