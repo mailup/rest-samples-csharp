@@ -146,6 +146,7 @@ namespace MailUp
             int statusCode = 0;
             try
             {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 HttpWebRequest wrLogon = (HttpWebRequest)WebRequest.Create(tokenEndpoint + "?code=" + code + "&grant_type=authorization_code");
                 wrLogon.AllowAutoRedirect = false;
                 wrLogon.KeepAlive = true;
@@ -181,6 +182,8 @@ namespace MailUp
                 
                 String body = "client_id=" + clientId + "&client_secret=" + clientSecret + "&grant_type=password&username="
                                 + Uri.EscapeDataString(login) + "&password=" + Uri.EscapeDataString(password);
+
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 HttpWebRequest wrLogon = (HttpWebRequest)WebRequest.Create(tokenEndpoint);
                 wrLogon.CookieContainer = cookies;
                 wrLogon.AllowAutoRedirect = false;
@@ -225,6 +228,7 @@ namespace MailUp
             int statusCode = 0;
             try
             {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 HttpWebRequest wrLogon = (HttpWebRequest)WebRequest.Create(tokenEndpoint);
                 wrLogon.AllowAutoRedirect = false;
                 wrLogon.KeepAlive = true;
@@ -274,7 +278,7 @@ namespace MailUp
             int statusCode = 0;
             try
             {
-                
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 HttpWebRequest wrLogon = (HttpWebRequest)WebRequest.Create(url);
                 wrLogon.AllowAutoRedirect = false;
                 wrLogon.KeepAlive = true;
