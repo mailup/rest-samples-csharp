@@ -5,8 +5,8 @@ It encloses a simplified library directed to manage authorization/autentication 
 
 Requirements
 ------------------------
-* .NET framework 4.0
-* Visual Studio 2010
+* .NET framework 4.5.2
+* Visual Studio 2013
 * A valid MailUp account ( trial accounts allowed )
 * Your own API application keys
 
