@@ -30,7 +30,7 @@
                     </div>
                     <div class="form-group">
                         <label for="txtPwd">Password:</label>
-                        <asp:TextBox type="text" ID="txtPwd" name="txtPwd" Columns="80" class="form-control" placeholder="type your MailUp password" onkeyup="checkSignInButton();" runat="server" />
+                        <asp:TextBox type="password" ID="txtPwd" name="txtPwd" Columns="80" class="form-control" placeholder="type your MailUp password" onkeyup="checkSignInButton();" runat="server" />
                     </div>
                     <asp:Button ID="Button1" class="btn btn-success" OnClick="LogOnWithUsernamePassword_ServerClick" Text="Sign in to MailUp with username and password" disabled runat="server"/>
                 </div>
